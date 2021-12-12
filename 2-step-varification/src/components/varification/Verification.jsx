@@ -10,7 +10,7 @@ const notyf = new Notyf();
 
 export default function Verification() {
   /***** STATES ******/
-  const { loggedIn, userName } = useContext(UserContext);
+  const { loggedIn, userName, verification } = useContext(UserContext);
 
   /***** REFS ******/
   const codeInput = useRef(null);
@@ -22,7 +22,7 @@ export default function Verification() {
   const navigate = useNavigate();
   // Navigate to login page if not logged in
   useEffect(() => {
-    if (!loggedIn) {
+    if (!loggedIn || !verification) {
       navigate('/'); //Login page
     }
   }, [loggedIn]);

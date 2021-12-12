@@ -19,9 +19,19 @@
 
 #### Functionality : 🧬🛠⚙
 
-- **Login Page -** Login by username and password (without registration). If the username is already in use or the password is incorrect you will receive a pop-up message.
-- **Verification page -** A page that will only be reached by those who have selected "2-step-verification" on the home page. An intermediate step between logging in to the home page where you have to enter the code from the app in order to continue.
-- **Home page -** A page where you can choose whether you want the extra security or not. If so you will see a QR code to scan and if not the option in DB will be disabled but your QR code will remain fixed.
+- **Login Page -** 🔑
+  - Login by username and password (without registration).
+  - If the username is already in use or the password is incorrect you will receive a pop-up message.
+- **Verification page -** 🔐
+
+  - A page that will only be reached by those who have selected "2-step-verification" on the home page.
+  - An intermediate step between logging in to the home page where you have to enter the code from the app in order to continue.
+  - You will not be able to access this page if you have not selected this security option. 🚫
+
+- **Home page -** 🏡
+  - A page where you can choose whether you want the extra security or not.
+  - If so you will see a QR code to scan and if not the option in DB will be disabled but your QR code will remain fixed.
+  - You will not be able to access this page if you have not loggedIn. 🚫
 
 #### Development : 👩‍💻👨‍💻
 
