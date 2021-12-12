@@ -1,5 +1,58 @@
 # 2-step-verification
 
+### Solution to a task in the Cyber4s course.
+
+### Developed using REACT, CSS, HTML , Node JS, Express, Cors, Nodemon
+
+---
+
+### My app -
+
+### General Information ℹ
+
+#### Local installation :
+
+- **Clone this repo**
+- **run `npm i`**
+- **run `npm run dev` - to run the server**
+- **run `npm start` - to run the front**
+
+#### Functionality : 🧬🛠⚙
+
+- **Login Page -** Login by username and password (without registration). If the username is already in use or the password is incorrect you will receive a pop-up message.
+- **Verification page -** A page that will only be reached by those who have selected "2-step-verification" on the home page. An intermediate step between logging in to the home page where you have to enter the code from the app in order to continue.
+- **Home page -** A page where you can choose whether you want the extra security or not. If so you will see a QR code to scan and if not the option in DB will be disabled but your QR code will remain fixed.
+
+#### Development : 👩‍💻👨‍💻
+
+- **User information is stored as objects in an array on the server**
+- **Using the [node-2fa](https://www.npmjs.com/package/node-2fa) package to create "2-step-verification" security**
+- **Password hashing and salting with [bcrypt](https://www.npmjs.com/package/bcrypt) package**
+
+#### Future : 👩‍🚀👨‍🚀
+
+- **Conversion to private react router**
+- **Making the DB persistent**
+- **Convert to TypeScript**
+- **Registration page**
+
+---
+
+### Pics 📸
+
+##### **LOGIN PAGE**
+
+<img src="./README-PICS/login.png" width="70%">
+
+##### **VERIFICATION PAGE**
+
+<img src="./README-PICS/verification-page.png" width="70%">
+
+##### **HOME PAGE**
+
+<img src="./README-PICS/home-verification-off.png" width="70%">
+<img src="./README-PICS/home-verification-on.png" width="70%">
+
 ---
 
 ### Task instructions -

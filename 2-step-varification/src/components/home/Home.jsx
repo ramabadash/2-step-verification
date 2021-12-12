@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <div id='home-div'>
-      <button className='logout' onClick={logout}>
+      <button className='logout-home' onClick={logout}>
         <i className='fas fa-sign-out-alt'></i>
       </button>
       <h1>Welcome to my home page, {userName ? userName : 'user'}!! </h1>

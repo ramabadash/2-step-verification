@@ -22,7 +22,7 @@
   padding: 0.5em;
 }
 
-.logout {
+.logout-home {
   float: right;
   margin-right: 1em;
   padding: 0.25em;
@@ -33,7 +33,7 @@
   cursor: pointer;
 }
 
-.logout:hover {
+.logout-home:hover {
   color: brown;
   background-color: whitesmoke;
 }
