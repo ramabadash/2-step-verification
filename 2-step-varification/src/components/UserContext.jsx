@@ -10,6 +10,7 @@ export const UserContext = React.createContext({});
 export const UserProvider = ({ children }) => {
   const [userName, setUserName] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [verification, setVerification] = useState(false);
 
   // Send login form
   const login = async (userName, password) => {
@@ -23,6 +24,7 @@ export const UserProvider = ({ children }) => {
       });
       setUserName(userName);
       setLoggedIn(true);
+      setVerification(response.data === 'verification');
       notyf.success('Welcome!'); //success message
       return response.data;
     } catch (error) {
@@ -30,5 +32,9 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  return <UserContext.Provider value={{ loggedIn, userName, login }}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ loggedIn, userName, verification, setVerification, login }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
