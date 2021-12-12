@@ -86,15 +86,16 @@ exports.validateTokenCode = (req, res, next) => {
     const { userName, code } = req.body;
     const userIndex = getUserIndexFromDB(userName);
     const answer = twofactor.verifyToken(USERS[userIndex].key, code);
-
-    if (answer.delta === 0) {
-      res.send('home');
-      return;
-    } else {
+    console.log(answer);
+    if (!answer) {
       throw {
         status: 400,
         message: 'Bad code!',
       };
+    }
+    if (answer.delta === 0) {
+      res.send('home');
+      return;
     }
   } catch (error) {
     console.log(error);

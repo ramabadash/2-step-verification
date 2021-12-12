@@ -27,7 +27,7 @@ export default function Verification() {
         navigate(`/${response.data}`);
       }
     } catch (error) {
-      notyf.error(`Sorry, ${error}. please try again!`); //error message
+      notyf.error(`Sorry, ${error.response.data}. please try again!`); //error message
     }
   };
 
