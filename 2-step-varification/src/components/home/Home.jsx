@@ -49,9 +49,26 @@ export default function Home() {
       </div>
 
       {showImg ? (
-        <div>
+        <div id='qr-div'>
           <h3>Scan this code for your "Google Authenticator" app:</h3>
           <img alt='qr-code' src={qrImg} />
+          <h4>
+            Don't have the app? install here easily
+            <br />
+            <a target='_blank' href='https://apps.apple.com/us/app/google-authenticator/id388497605' rel='noreferrer'>
+              App Store
+            </a>{' '}
+            <br />
+            <a
+              target='_blank'
+              href={
+                'https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_US&gl=US'
+              }
+              rel='noreferrer'
+            >
+              Android
+            </a>
+          </h4>
         </div>
       ) : (
         ''

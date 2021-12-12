@@ -7,9 +7,17 @@
 }
 
 #toggle-div {
-  background-color: rgba(255, 192, 203, 0.616);
+  background-color: rgba(255, 255, 255, 0.616);
   width: 70%;
   margin: auto;
+  border-radius: 1em;
+  padding: 0.5em;
+}
+
+#qr-div {
+  width: 70%;
+  margin: 0.5em auto;
+  background-color: rgba(150, 148, 148, 0.7);
   border-radius: 1em;
   padding: 0.5em;
 }
