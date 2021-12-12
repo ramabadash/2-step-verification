@@ -17,6 +17,9 @@ export default function Home() {
   const [showImg, setShowImg] = useState(qrImg ? true : false);
 
   /***** FUNCTIONS *****/
+  //
+  const { logout } = useContext(UserContext);
+  //
   const navigate = useNavigate();
   // Navigate to login page if not logged in
   useEffect(() => {
@@ -46,6 +49,9 @@ export default function Home() {
 
   return (
     <div id='home-div'>
+      <button className='logout' onClick={logout}>
+        <i className='fas fa-sign-out-alt'></i>
+      </button>
       <h1>Welcome to my home page, {userName ? userName : 'user'}!! </h1>
 
       <div id='toggle-div'>

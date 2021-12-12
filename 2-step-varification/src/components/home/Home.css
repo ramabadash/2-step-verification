@@ -22,6 +22,22 @@
   padding: 0.5em;
 }
 
+.logout {
+  float: right;
+  margin-right: 1em;
+  padding: 0.25em;
+  font-size: 2em;
+  color: whitesmoke;
+  background-color: brown;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: brown;
+  background-color: whitesmoke;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;

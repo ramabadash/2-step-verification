@@ -30,3 +30,19 @@
   cursor: pointer;
   font-family: 'Didact Gothic';
 }
+
+.logout {
+  float: right;
+  margin-right: 1em;
+  padding: 0.25em;
+  font-size: 2em;
+  color: whitesmoke;
+  background-color: rgb(2, 1, 82);
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: rgb(2, 1, 82);
+  background-color: whitesmoke;
+}

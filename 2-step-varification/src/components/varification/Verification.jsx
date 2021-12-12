@@ -16,6 +16,9 @@ export default function Verification() {
   const codeInput = useRef(null);
 
   /***** FUNCTIONS ******/
+  //
+  const { logout } = useContext(UserContext);
+  //
   const navigate = useNavigate();
   // Navigate to login page if not logged in
   useEffect(() => {
@@ -39,6 +42,9 @@ export default function Verification() {
 
   return (
     <div id='verification-div'>
+      <button className='logout' onClick={logout}>
+        <i className='fas fa-sign-out-alt'></i>
+      </button>
       <h1>Verification page :</h1>
       <input ref={codeInput} type='text' placeholder='Enter the code from your app here...' />
       <button className='login-btn' onClick={validateCode}>
