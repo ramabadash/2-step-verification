@@ -80,6 +80,28 @@ exports.TwoStepVerification = (req, res, next) => {
   }
 };
 
+// Verify code from the app
+exports.validateTokenCode = (req, res, next) => {
+  try {
+    const { userName, code } = req.body;
+    const userIndex = getUserIndexFromDB(userName);
+    const answer = twofactor.verifyToken(USERS[userIndex].key, code);
+
+    if (answer.delta === 0) {
+      res.send('home');
+      return;
+    } else {
+      throw {
+        status: 400,
+        message: 'Bad code!',
+      };
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+/***** HELPERS *****/
 //Get user
 const getUserIndexFromDB = (userName) => {
   for (const user of USERS) {
