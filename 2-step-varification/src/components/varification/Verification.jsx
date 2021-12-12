@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { UserContext } from '../UserContext.jsx';
 import { BASEURL } from '../App.jsx';
@@ -10,14 +10,20 @@ const notyf = new Notyf();
 
 export default function Verification() {
   /***** STATES ******/
-  const { userName } = useContext(UserContext);
+  const { loggedIn, userName } = useContext(UserContext);
 
   /***** REFS ******/
   const codeInput = useRef(null);
 
   /***** FUNCTIONS ******/
-  // Navigation function
   const navigate = useNavigate();
+  // Navigate to login page if not logged in
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate('/'); //Login page
+    }
+  }, [loggedIn]);
+
   // Validate from app code
   const validateCode = async () => {
     try {

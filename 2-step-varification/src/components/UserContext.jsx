@@ -11,6 +11,7 @@ export const UserProvider = ({ children }) => {
   const [userName, setUserName] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [verification, setVerification] = useState(false);
+  const [qrImg, setQRImg] = useState(''); // QR src
 
   // Send login form
   const login = async (userName, password) => {
@@ -33,7 +34,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ loggedIn, userName, verification, setVerification, login }}>
+    <UserContext.Provider value={{ loggedIn, userName, verification, qrImg, setQRImg, setVerification, login }}>
       {children}
     </UserContext.Provider>
   );

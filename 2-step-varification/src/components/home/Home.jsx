@@ -1,7 +1,8 @@
-import React, { useContext, useState, useRef } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { BASEURL } from '../App.jsx';
 import { UserContext } from '../UserContext.jsx';
+import { useNavigate } from 'react-router';
 import './Home.css';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
@@ -12,17 +13,24 @@ export default function Home() {
   const toggleBtn = useRef(null);
 
   /***** STATES *****/
-  const { userName, verification, setVerification } = useContext(UserContext);
-  const [qrImg, setImg] = useState(false); // QR src
-  const [showImg, setShowImg] = useState(false);
+  const { loggedIn, userName, verification, setVerification, qrImg, setQRImg } = useContext(UserContext);
+  const [showImg, setShowImg] = useState(qrImg ? true : false);
 
   /***** FUNCTIONS *****/
+  const navigate = useNavigate();
+  // Navigate to login page if not logged in
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate('/'); //Login page
+    }
+  }, [loggedIn]);
+
   // Convert verification from true to false and false to true
   const onVerificationChange = async () => {
     try {
       const response = await axios.post(`${BASEURL}/users/change-verification`, { userName });
       if (response.data !== 'changed!') {
-        setImg(response.data); //Set state for showing QR code
+        setQRImg(response.data); //Set state for showing QR code
         setShowImg(true);
         setVerification(true);
       } else {
