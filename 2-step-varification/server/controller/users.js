@@ -37,7 +37,6 @@ exports.login = async (req, res, next) => {
       key: '',
       verification: false,
     });
-    console.log('USERS', USERS);
     res.send('home'); //Send where to navigate to the "home" page or the "verification" page
   } catch (error) {
     next(error);
@@ -58,13 +57,11 @@ exports.TwoStepVerification = (req, res, next) => {
         const newSecret = twofactor.generateSecret({ name: "Rama's App", account: userName });
         USERS[userIndex].key = newSecret.secret;
         USERS[userIndex].verification = !USERS[userIndex].verification; // Switch true \ false
-        console.log('users', USERS);
         res.send(newSecret.qr);
         return;
       }
 
       USERS[userIndex].verification = !USERS[userIndex].verification; // Switch true \ false
-      console.log('users', USERS);
 
       res.send('changed!');
       return;
@@ -75,7 +72,6 @@ exports.TwoStepVerification = (req, res, next) => {
       };
     }
   } catch (error) {
-    console.log(error);
     next(error);
   }
 };
@@ -86,7 +82,6 @@ exports.validateTokenCode = (req, res, next) => {
     const { userName, code } = req.body;
     const userIndex = getUserIndexFromDB(userName);
     const answer = twofactor.verifyToken(USERS[userIndex].key, code);
-    console.log(answer);
     if (!answer) {
       throw {
         status: 400,
@@ -98,7 +93,6 @@ exports.validateTokenCode = (req, res, next) => {
       return;
     }
   } catch (error) {
-    console.log(error);
     next(error);
   }
 };
@@ -107,7 +101,6 @@ exports.validateTokenCode = (req, res, next) => {
 const getUserIndexFromDB = (userName) => {
   for (const user of USERS) {
     if (user.userName === userName) {
-      console.log('users index', USERS.indexOf(user));
       return USERS.indexOf(user);
     }
   }
