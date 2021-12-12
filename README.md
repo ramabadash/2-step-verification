@@ -14,7 +14,7 @@ Implement a small application with 2-step verification.
   - [x] a 2-step verification page with a form for the code from the authenticator app
 - **Write a small server that stores user details**
   - [x] Passwords must be saved securely! Use hashes with salts (you can find an npm package for that)
-- [x] When a user logs in, they are redirected to the home page
+  - [x] When a user logs in, they are redirected to the home page
   - [x] If the user has 2-step verification enabled, they are redirected to the 2-step verification page (and then to the home page)
 - **When a user wishes to enable 2-step verification:**
   - [x] the server generates a secret key, which is stored with the user's details
